@@ -18,5 +18,8 @@ args.removeFirst() // remove the name of the program
 
 // Initialize a Calculator object
 let calculator = Calculator(args: args);
+// Calculate the result
+let result = calculator.calculate();
 
+print(result);
 

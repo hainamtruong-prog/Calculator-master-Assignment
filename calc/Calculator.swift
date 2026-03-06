@@ -55,7 +55,6 @@ class Calculator {
         return true;
     }
     
-    
     func validateInputAll() -> Bool {
         let validInputNum: Bool = validateInputLen();
         let validInputOps: Bool = validateOpsType();
@@ -64,7 +63,6 @@ class Calculator {
             return true;
         }
         return false;
-        
     }
     
     
@@ -74,7 +72,9 @@ class Calculator {
         if (!validateInputAll()) {
             exit(1);
         }
-        if (args.count == 1) { return args[0]; }
+        if (args.count == 1) {
+            return String(Int(args[0])!);
+        }
         var result: Int = 0;
         var stack: [String] = [];
         var i: Int = 0;
@@ -97,9 +97,13 @@ class Calculator {
                     }
                     
                     j += 2;
+                    
+                    if (j >= inputSize) {
+                        break;
+                    }
                 }
                 stack.append(String(tempResult));
-            
+    
             }
             i = j;
             if (j < inputSize) { stack.append(args[i]); }
@@ -107,7 +111,7 @@ class Calculator {
         }
         result = Int(stack[0])!;
         
-        if (stack.count == 1) { return String(result); }
+        if (stack.count < 3) { return String(result); }
         
         for k in 1...stack.count - 2 {
             if (stack[k] == "+") {
