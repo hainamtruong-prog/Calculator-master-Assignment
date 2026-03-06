@@ -17,9 +17,6 @@ args.removeFirst() // remove the name of the program
 //let no2 = args[2]; // Sample Code Only! Update Required!
 
 // Initialize a Calculator object
-let calculator = Calculator();
+let calculator = Calculator(args: args);
 
-// Calculate the result
-let result = calculator.add(no1: 1, no2: 1);
 
-print(result)
